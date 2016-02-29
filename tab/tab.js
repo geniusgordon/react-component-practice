@@ -20,9 +20,12 @@ const Tab = React.createClass({
       }
     }
   },
-  handleItemClick(left, width) {
-    var nextState = Object.assign({}, this.state, {indicator: {left, width}})
-    this.setState(nextState);
+  handleItemClick(index, left, width) {
+    this.setState({
+      selected: index,
+      indicator: {left, width}
+    })
+    this.props.onClick(index, left);
   },
   render() {
     let items = this.props.items.map((item, i) => (

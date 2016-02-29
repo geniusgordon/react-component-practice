@@ -1,17 +1,14 @@
 import React from 'react'
-import Tab from './tab'
-
-const items = [{
-  name: 'AAA'
-}, {
-  name: 'BBB'
-}, {
-  name: 'CCC'
-}]
+import Header from './header'
 
 const App = React.createClass({
   render() {
-    return <div><Tab items={items} />{this.props.children}</div>
+    return (
+      <div>
+        <Header />
+        {this.props.children}
+      </div>
+    )
   }
 })
 

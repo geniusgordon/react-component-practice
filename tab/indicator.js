@@ -1,8 +1,8 @@
 import React from 'react'
 
 const style = {
-  height: 1,
-  background: 'black',
+  height: 3,
+  background: 'white',
   position: 'absolute',
   bottom: 22,
   transition: 'all 0.25s ease'
