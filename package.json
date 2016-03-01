@@ -11,6 +11,7 @@
   "dependencies": {
     "radium": "^0.16.6",
     "react": "latest",
+    "react-addons-css-transition-group": "^0.14.7",
     "react-dom": "latest",
     "react-redux": "latest",
     "react-router": "^2.0.0",
