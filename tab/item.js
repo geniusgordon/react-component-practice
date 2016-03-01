@@ -20,7 +20,7 @@ const Item = React.createClass({
     this.props.onClick(this.props.index, node.offsetLeft, node.offsetWidth)
   },
   render() {
-    var {name, selected} = this.props
+    var {name} = this.props
     return (
       <Link
         to={name}
@@ -28,6 +28,12 @@ const Item = React.createClass({
         onClick={this.handleClick}
       >{name}</Link>
     )
+  },
+  propTypes: {
+    index: React.PropTypes.number,
+    name: React.PropTypes.string,
+    selected: React.PropTypes.bool,
+    onClick: React.PropTypes.func
   }
 })
 

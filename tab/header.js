@@ -49,16 +49,16 @@ const Header = React.createClass({
     let ripple = {
       width: diameter,
       height: diameter,
-      top: 40 - diameter/2,
-      left: left - diameter/2,
-      background: items[index].color,
+      top: 40 - diameter / 2,
+      left: left - diameter / 2,
+      background: items[index].color
     }
     this.setState({selected: index, ripple: ripple})
   },
   render() {
     let ripple = this.state.ripple ? (
       <ReactCSSTransitionGroup
-        transitionName="ripple"
+        transitionName='ripple'
         transitionEnterTimeout={500}
         transitionLeaveTimeout={10}
       >

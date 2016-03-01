@@ -9,6 +9,9 @@ const App = React.createClass({
         {this.props.children}
       </div>
     )
+  },
+  propTypes: {
+    children: React.PropTypes.element
   }
 })
 

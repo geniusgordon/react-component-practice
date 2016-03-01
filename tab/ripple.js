@@ -1,9 +1,13 @@
 import React from 'react'
-import style from './ripple.scss'
+import './ripple.scss'
 
 const Ripple = ({size}) => (
-  <div className="ripple" style={size}></div>
+  <div className='ripple' style={size}></div>
 )
+
+Ripple.propTypes = {
+  size: React.PropTypes.object
+}
 
 export default Ripple
 

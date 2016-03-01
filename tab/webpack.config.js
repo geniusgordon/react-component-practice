@@ -21,6 +21,11 @@ module.exports = {
         }, {
             test: /\.scss$/,
             loaders: ['style', 'css', 'sass']
+        }],
+        preLoaders: [{
+            test: /\.js$/,
+            loader: 'eslint-loader',
+            exclude: /node_modules/
         }]
     },
 };

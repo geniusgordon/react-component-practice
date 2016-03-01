@@ -12,5 +12,9 @@ const Indicator = ({position}) => (
   <div style={Object.assign({}, style, position)}></div>
 )
 
+Indicator.propTypes = {
+  position: React.PropTypes.object
+}
+
 export default Indicator
 

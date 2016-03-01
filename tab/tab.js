@@ -25,7 +25,7 @@ const Tab = React.createClass({
       selected: index,
       indicator: {left, width}
     })
-    this.props.onClick(index, left);
+    this.props.onClick(index, left)
   },
   render() {
     let items = this.props.items.map((item, i) => (
@@ -33,7 +33,7 @@ const Tab = React.createClass({
         {...item}
         key={i}
         index={i}
-        selected={i==this.state.selected} 
+        selected={i === this.state.selected}
         onClick={this.handleItemClick} />
     ))
     return (
@@ -42,6 +42,10 @@ const Tab = React.createClass({
         <Indicator position={this.state.indicator} />
       </div>
     )
+  },
+  propTypes: {
+    onClick: React.PropTypes.func,
+    items: React.PropTypes.array
   }
 })
 
