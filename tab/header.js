@@ -1,5 +1,6 @@
 import React from 'react'
 import { findDOMNode } from 'react-dom'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import Ripple from './ripple'
 import Tab from './tab'
 
@@ -28,15 +29,22 @@ const Header = React.createClass({
       background: '#455A64',
       selected: 0,
       diameter: 0,
-      ripples: null
+      ripple: null
     }
   },
   componentDidMount() {
     let node = findDOMNode(this)
     let diameter = Math.max(node.offsetWidth, node.offsetHeight)
     this.setState({diameter: diameter})
+    this.initialRipple(0, 0)
   },
   handleTabClick(index, left) {
+    this.initialRipple(index, left)
+    setTimeout(() => {
+      this.setState({background: items[index].color})
+    }, 500)
+  },
+  initialRipple(index, left) {
     let diameter = this.state.diameter
     let ripple = {
       width: diameter,
@@ -44,26 +52,19 @@ const Header = React.createClass({
       top: 40 - diameter/2,
       left: left - diameter/2,
       background: items[index].color,
-      transform: 'scale(0)'
     }
-    this.addNewRipple(index, ripple)
-  },
-  addNewRipple(index, ripple) {
-    this.setState({ripple: null})
-    setTimeout(() => {
-      this.setState({ripple: ripple})
-    }, 5)
-    setTimeout(() => {
-      let newRipple = Object.assign({}, ripple, {transform: 'scale(2.5)'})
-      this.setState({ripple: newRipple})
-    }, 100)
-    setTimeout(() => {
-      this.setState({background: items[index].color})
-    }, 500)
+    this.setState({selected: index, ripple: ripple})
   },
   render() {
-    let ripple = this.state.ripple ? <Ripple key={this.state.selected} size={this.state.ripple} /> : ''
-    console.log(this.state.ripple)
+    let ripple = this.state.ripple ? (
+      <ReactCSSTransitionGroup
+        transitionName="ripple"
+        transitionEnterTimeout={500}
+        transitionLeaveTimeout={10}
+      >
+        <Ripple key={this.state.selected} size={this.state.ripple} />
+      </ReactCSSTransitionGroup>
+    ) : ''
     return (
       <div style={Object.assign({}, style.header, {background: this.state.background})}>
         {ripple}

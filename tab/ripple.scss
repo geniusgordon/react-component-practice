@@ -1,0 +1,15 @@
+.ripple {
+  position: absolute;
+  border-radius: 100%;
+  transform: scale(2.5);
+}
+
+.ripple-enter {
+  transform: scale(0);
+  transition: transform 0.5s;
+}
+
+.ripple-enter.ripple-enter-active {
+  transform: scale(2.5);
+}
+

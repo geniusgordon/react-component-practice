@@ -1,17 +1,8 @@
 import React from 'react'
-
-const style = {
-  ripple: {
-    position: 'absolute',
-    borderRadius: '100%',
-    transition: 'transform 0.5s'
-  }
-}
+import style from './ripple.scss'
 
 const Ripple = ({size}) => (
-  <div
-    style={Object.assign({}, style.ripple, size)}
-  ></div>
+  <div className="ripple" style={size}></div>
 )
 
 export default Ripple
