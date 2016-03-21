@@ -21,6 +21,7 @@
     "react": "latest",
     "react-addons-css-transition-group": "^0.14.7",
     "react-dom": "latest",
+    "react-motion": "^0.4.2",
     "react-redux": "latest",
     "react-router": "^2.0.0",
     "redux": "latest",
