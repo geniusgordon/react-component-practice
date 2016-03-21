@@ -37,7 +37,7 @@ var Navbar = React.createClass({
     )
   },
   propTypes: {
-    items: React.propTypes.array
+    items: React.PropTypes.array
   }
 })
 
