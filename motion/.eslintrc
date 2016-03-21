@@ -1,7 +1,0 @@
-{
-    "rules": {
-        "space-before-function-paren": 0
-    },
-    "extends": ["standard", "standard-react"]
-}
-
